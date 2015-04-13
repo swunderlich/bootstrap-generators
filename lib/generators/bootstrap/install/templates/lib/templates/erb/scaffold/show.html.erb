@@ -1,14 +1,5 @@
-<div class="page-header">
-  <%%= link_to <%= index_helper %>_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    <%= t("back") %>
-  <%% end %>
-  <%%= link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-pencil"></span>
-    <%= t("edit") %>
-  <%% end %>
-  <h1><%= t("new_#{singular_table_name}") %></h1>
-</div>
+<%- model_class = singular_table_name.camelcase.safe_constantize -%>
+<%%= render partial: "shared/edit", locals: {model_class: <%=model_class %>, object: @<%= singluar_table_name%> } %>
 
 <dl class="dl-horizontal">
   <%- attributes.each do |attribute| -%>

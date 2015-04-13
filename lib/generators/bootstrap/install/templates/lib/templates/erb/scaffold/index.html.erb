@@ -1,11 +1,6 @@
 <%- model_class = singular_table_name.camelcase.safe_constantize -%>
-<div class="page-header">
-  <%%= link_to new_<%= singular_table_name %>_path, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-plus"></span>
-    <%= t("new_#{singular_table_name}") %>
-  <%% end %>
-  <h1><%= model_class.model_name.human(count: 2) %></h1>
-</div>
+<%%= render partial: "shared/edit", locals: {model_class: <%=model_class %> } %>
+
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">

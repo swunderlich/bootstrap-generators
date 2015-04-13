@@ -1,14 +1,3 @@
 <%- model_class = singular_table_name.camelcase.safe_constantize -%>
-<div class="page-header">
-  <%%= link_to <%= index_helper %>_path, class: 'btn btn-default' do %>
-    <span class="glyphicon glyphicon-list-alt"></span>
-    <%= t("back") %>
-  <%% end %>
-  <%%= link_to @<%= singular_table_name %>, class: 'btn btn-primary' do %>
-    <span class="glyphicon glyphicon-info-sign"></span>
-    <%= t("show")%>
-  <%% end %>
-  <h1><%= model_class.model_name.human %></h1>
-</div>
-
+<%%= render partial: "shared/edit", locals: {model_class: <%=model_class %>, object: @<%= singluar_table_name%> } %>
 <%%= render 'form' %>

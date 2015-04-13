@@ -1,9 +1,10 @@
+<%- model_class = singular_table_name.camelcase.safe_constantize -%>
 <div class="page-header">
   <%%= link_to new_<%= singular_table_name %>_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New <%= human_name %>
+    <%= t("new_#{singular_table_name}") %>
   <%% end %>
-  <h1>Listing <%= plural_table_name %></h1>
+  <h1><%= model_class.model_name.human(count: 2) %></h1>
 </div>
 
 <div class="table-responsive">
